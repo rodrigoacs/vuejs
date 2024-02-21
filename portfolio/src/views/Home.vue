@@ -1,11 +1,32 @@
 <template>
   <Bio />
-  <Project />
+  <Projects />
 </template>
 
 <script setup>
 import Bio from '@/components/Bio.vue'
-import Project from '@/components/Project.vue'
+import Projects from '@/components/Projects.vue'
+import { onMounted } from 'vue'
+import { generateGithubStatsUrl } from '../githubCard.js'
+
+onMounted(() => {
+  changeProjectCardTheme()
+})
+
+function changeProjectCardTheme() {
+  console.log('changeProjectCardTheme')
+  const projectsCards = document.querySelectorAll('.project-card')
+  console.log(projectsCards)
+  projectsCards.forEach(card => {
+    if (document.documentElement.classList.contains('dark')) {
+      card.src = generateGithubStatsUrl(card.alt, 'dark')
+    } else {
+      card.src = generateGithubStatsUrl(card.alt, 'light')
+    }
+  })
+}
+
+
 </script>
 
 <style scoped>

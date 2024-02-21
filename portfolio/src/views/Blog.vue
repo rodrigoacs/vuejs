@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h2>leia alguns dos meus posts</h2>
+    <h2>{{ $t("blog.title") }}</h2>
     <a
       href="#"
       class="blog-post-link"
     >
-      <div class="blog-post">
+      <!-- <div class="blog-post">
         <b>Em Breve</b>
         <p>...</p>
-      </div>
+      </div> -->
     </a>
   </div>
 </template>

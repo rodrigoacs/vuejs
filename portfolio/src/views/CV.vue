@@ -2,10 +2,10 @@
   <div>
     <h2 class="header">Rodrigo Augusto Correa Soares</h2>
     <p class="socials">
-      <span> 14/05/2003</span>
+      <span> {{ $t("cv.birthDate") }}</span>
     </p>
     <p class="socials">
-      <span> MINAS GERAIS, BRASIL</span>
+      <span> {{ $t("cv.home") }}</span>
     </p>
     <p class="socials">
       <a
@@ -26,38 +26,44 @@
       >&nbsp;Site</a>
     </p>
 
-    <h3>Resumo</h3>
-    <p>
-      Estou cursando o terceiro período de Sistemas de Informação no IFMG Campus Ouro Branco. Tenho
-      interesse em aprimorar minhas habilidades técnicas em desenvolvimento backend e/ou fullstack.
-      Atualmente trabalho como estagiário de engenharia de dados construindo soluções de integração
-      de dados voltadas ao setor terciário, especialmente de varejo, no Brasil.
-    </p>
+    <h3>{{ $t("cv.resume") }}</h3>
+    <p> {{ $t("cv.resumeText") }} </p>
 
-    <h3>Formação</h3>
-    <p>
-      JANEIRO DE 2018 - ABRIL DE 2021 (CONCLUÍDO)<br />IFMG, Congonhas MG<br />Técnico Integrado em
-      Mecânica
-    </p>
-    <br />
-    <p>
-      SETEMBRO DE 2022 - (CURSANDO)<br />IFMG, Ouro Branco MG<br />Bacharelado em Sistemas de
-      Informação
-    </p>
+    <h3> {{ $t("cv.education") }} </h3>
 
-    <h3>Experiência</h3>
-    <p>FEVEREIRO DE 2023 - ATUALMENTE<br />CLI Consultoria - Estagiário - Desenvolvimento ETL</p>
-    <p>
-      Construção de integrações de dados entre bancos de dados relacionais e APIs baseadas em
-      MongoDB, manutenção em aplicações legado, gerenciamento de pipeline de dados. Suporte técnico
-      interno para sistemas Linux (Ubuntu, CentOS). Gerenciamento de instâncias AWS EC2.
-    </p>
+    <!-- <div
+      v-for='(edu, index) in $t("cv.educations")'
+      :key='index'
+    >
+      <p>{{ edu }}</p>
+      <p>{{ education.local }}</p>
+      <p>{{ education.course }}</p>
+    </div> -->
 
-    <h3>Linguagens, ferramentas e softwares</h3>
-    <p>&gt; SQL, JavaScript(Node.js), Python, HTML, CSS, Java e C.</p>
-    <p>&gt; Pentaho Data Integration, Postman, DBeaver e SAPGUI.</p>
-    <p>&gt; RDBMS: Oracle, PostgreSQL e MySQL.</p>
-    <p>&gt; Inglês intermediário.</p>
+    <div>
+      <p>{{ $t("cv.educations[0].time") }}</p>
+      <p>{{ $t("cv.educations[0].local") }}</p>
+      <p>{{ $t("cv.educations[0].course") }}</p>
+    </div>
+    <br>
+    <div>
+      <p>{{ $t("cv.educations[1].time") }}</p>
+      <p>{{ $t("cv.educations[1].local") }}</p>
+      <p>{{ $t("cv.educations[1].course") }}</p>
+    </div>
+
+    <h3>{{ $t("cv.experience") }}</h3>
+    <div>
+      <p> {{ $t("cv.experienceText[0].time") }} </p>
+      <p> {{ $t("cv.experienceText[0].title") }} </p>
+      <p> {{ $t("cv.experienceText[0].description") }} </p>
+    </div>
+
+    <h3> {{ $t("cv.skills") }} </h3>
+    <p>&gt; {{ $t("cv.skills1") }}</p>
+    <p>&gt; {{ $t("cv.skills2") }}</p>
+    <p>&gt; {{ $t("cv.skills3") }}</p>
+    <p>&gt; {{ $t("cv.skills4") }}</p>
   </div>
 </template>
 

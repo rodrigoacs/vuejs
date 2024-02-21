@@ -21,17 +21,18 @@
       >cv</RouterLink>
     </div>
     <div class="theme-language-wrapper">
-      <a id="change-language"><img
-          width="24"
-          height="24"
-          src="https://img.icons8.com/fluency/48/usa-circular.png"
-          alt="pt-BR language icon"
-        /></a>
+      <select @change="changeLanguage($event.target.value)">
+        <option
+          v-for="locale in locales"
+          :value="locale"
+        >{{ locale.split('_')[0] }}</option>
+      </select>
       <label class="switch">
         <input
           type="checkbox"
           id="change-theme"
           checked=""
+          @change="changeTheme"
         />
         <span class="slider"></span>
       </label>
@@ -40,11 +41,62 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+import {
+  computed,
+  onMounted
+} from 'vue'
+import { generateGithubStatsUrl } from '../githubCard.js'
 
 const route = useRoute()
+const { locale } = useI18n()
+const root = document.documentElement
+
 const pageTitle = computed(() => getPageTitle(route.path))
+const locales = computed(() => useI18n().availableLocales)
+
+onMounted(() => {
+  defaultLanguage()
+  defaultTheme()
+})
+
+function defaultTheme() {
+  const toggle = document.getElementById('change-theme')
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    root.classList.add('dark')
+  else {
+    root.classList.add('light')
+    toggle.checked = false
+  }
+}
+
+function changeTheme() {
+  root.classList.toggle('dark')
+  root.classList.toggle('light')
+  changeProjectCardTheme()
+}
+
+function changeProjectCardTheme() {
+  const projectsCards = document.querySelectorAll('.project-card')
+  projectsCards.forEach(card => {
+    if (document.documentElement.classList.contains('dark')) {
+      card.src = generateGithubStatsUrl(card.alt, 'dark')
+    } else {
+      card.src = generateGithubStatsUrl(card.alt, 'light')
+    }
+  })
+}
+
+function defaultLanguage() {
+  const select = document.querySelector('select')
+  const userLang = (navigator.language || navigator.userLanguage).split('-')[0]
+  select.value = userLang
+}
+
+function changeLanguage(selectedLocale) {
+  locale.value = selectedLocale
+}
 
 function getPageTitle(path) {
   switch (path) {
@@ -66,6 +118,14 @@ function isActive(path) {
 </script>
 
 <style scoped>
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
 .theme-language-wrapper {
   display: flex;
   gap: 10px;
@@ -151,7 +211,6 @@ input:checked+.slider {
 input:checked+.slider:before {
   left: calc(100% - (var(--size-of-icon, 1.4em) + var(--slider-offset, 0.3em)));
   background: #222222;
-  /* change the value of second inset in box-shadow to change the angle and direction of the moon  */
   box-shadow: inset -3px -2px 5px -2px #8983f7, inset -10px -4px 0 0 #a3dafb;
 }
 </style>
