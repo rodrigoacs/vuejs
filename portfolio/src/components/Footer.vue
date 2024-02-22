@@ -1,10 +1,10 @@
 <template>
   <div>
-    <p>icons by Icons8</p>
+    <p>
+      icons by Icons8
+    </p>
   </div>
 </template>
-
-<script setup></script>
 
 <style scoped>
 p {

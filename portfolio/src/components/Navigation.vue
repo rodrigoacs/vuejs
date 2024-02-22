@@ -1,32 +1,47 @@
 <template>
   <head>
-    <title>{{ pageTitle }} | rodrigoacs</title>
+    <title>
+      {{ pageTitle }} | rodrigoacs
+    </title>
   </head>
+
   <nav>
     <div>
       <RouterLink
         class="link"
         :class="{ active: isActive('/') }"
         to="/"
-      >home</RouterLink>
+      >
+        home
+      </RouterLink>
+
       <RouterLink
         class="link"
         :class="{ active: isActive('/blog') }"
         to="/blog"
-      >blog</RouterLink>
+      >
+        blog
+      </RouterLink>
+
       <RouterLink
         class="link"
         :class="{ active: isActive('/cv') }"
         to="/cv"
-      >cv</RouterLink>
+      >
+        cv
+      </RouterLink>
     </div>
+
     <div class="theme-language-wrapper">
       <select @change="changeLanguage($event.target.value)">
         <option
           v-for="locale in locales"
           :value="locale"
-        >{{ locale.split('_')[0] }}</option>
+        >
+          {{ locale.split('_')[0] }}
+        </option>
       </select>
+
       <label class="switch">
         <input
           type="checkbox"
@@ -43,11 +58,13 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
+
 import {
   computed,
   onMounted
 } from 'vue'
-import { generateGithubStatsUrl } from '../githubCard.js'
+
+import { generateGithubStatsUrl } from '../composables/githubCard'
 
 const route = useRoute()
 const { locale } = useI18n()
@@ -64,11 +81,10 @@ onMounted(() => {
 function defaultTheme() {
   const toggle = document.getElementById('change-theme')
   if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-    root.classList.add('dark')
-  else {
-    root.classList.add('light')
-    toggle.checked = false
-  }
+    return root.classList.add('dark')
+
+  root.classList.add('light')
+  return toggle.checked = false
 }
 
 function changeTheme() {
@@ -114,7 +130,6 @@ function getPageTitle(path) {
 function isActive(path) {
   return route.path === path
 }
-
 </script>
 
 <style scoped>

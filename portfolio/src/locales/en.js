@@ -31,7 +31,7 @@ export const en = {
       },
     ],
     experience: 'Experience',
-    experienceText: [
+    experiences: [
       {
         time: 'FEBRUARY 2023 - PRESENT',
         title: 'CLI Consulting - Data Engineering Intern',

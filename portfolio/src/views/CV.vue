@@ -1,69 +1,121 @@
 <template>
   <div>
-    <h2 class="header">Rodrigo Augusto Correa Soares</h2>
+    <h2 class="header">
+      Rodrigo Augusto Correa Soares
+    </h2>
+
     <p class="socials">
-      <span> {{ $t("cv.birthDate") }}</span>
+      <span>
+        {{ $t("cv.birthDate") }}
+      </span>
     </p>
+
     <p class="socials">
-      <span> {{ $t("cv.home") }}</span>
+      <span>
+        {{ $t("cv.home") }}
+      </span>
     </p>
+
     <p class="socials">
       <a
         target="_blank"
         href="mailto:rodrigohths@gmail.com"
-      >rodrigohths@gmail.com</a>
+      >
+        rodrigohths@gmail.com
+      </a>
+
       <a
         target="_blank"
         href="https://github.com/rodrigoacs"
-      >&nbsp;|&nbsp;GitHub&nbsp;|&nbsp;</a>
+      >
+        &nbsp;|&nbsp;GitHub&nbsp;|&nbsp;
+      </a>
+
       <a
         target="_blank"
         href="https://www.linkedin.com/in/rodrigoacsoares/"
-      > LinkedIn | </a>
+      >
+        LinkedIn |
+      </a>
+
       <a
         target="_blank"
         href="https://rodrigoacs.com"
-      >&nbsp;Site</a>
+      >
+        &nbsp;Site
+      </a>
     </p>
 
-    <h3>{{ $t("cv.resume") }}</h3>
-    <p> {{ $t("cv.resumeText") }} </p>
+    <h3>
+      {{ $t("cv.resume") }}
+    </h3>
 
-    <h3> {{ $t("cv.education") }} </h3>
+    <p>
+      {{ $t("cv.resumeText") }}
+    </p>
 
-    <!-- <div
-      v-for='(edu, index) in $t("cv.educations")'
+    <h3>
+      {{ $t("cv.education") }}
+    </h3>
+
+    <div
+      v-for='(edu, index) in $tm("cv.educations")'
       :key='index'
     >
-      <p>{{ edu }}</p>
-      <p>{{ education.local }}</p>
-      <p>{{ education.course }}</p>
-    </div> -->
+      <p>
+        {{ edu.time }}
+      </p>
 
-    <div>
-      <p>{{ $t("cv.educations[0].time") }}</p>
-      <p>{{ $t("cv.educations[0].local") }}</p>
-      <p>{{ $t("cv.educations[0].course") }}</p>
-    </div>
-    <br>
-    <div>
-      <p>{{ $t("cv.educations[1].time") }}</p>
-      <p>{{ $t("cv.educations[1].local") }}</p>
-      <p>{{ $t("cv.educations[1].course") }}</p>
+      <p>
+        {{ edu.local }}
+      </p>
+
+      <p>
+        {{ edu.course }}
+      </p>
+
+      <br>
     </div>
 
-    <h3>{{ $t("cv.experience") }}</h3>
-    <div>
-      <p> {{ $t("cv.experienceText[0].time") }} </p>
-      <p> {{ $t("cv.experienceText[0].title") }} </p>
-      <p> {{ $t("cv.experienceText[0].description") }} </p>
+    <h3>
+      {{ $t("cv.experience") }}
+    </h3>
+
+    <div v-for='(exp, index) in $tm("cv.experiences")'>
+      <p>
+        {{ exp.time }}
+      </p>
+
+      <p>
+        {{ exp.title }}
+      </p>
+
+      <p>
+        {{ exp.description }}
+      </p>
+
+      <br>
     </div>
 
-    <h3> {{ $t("cv.skills") }} </h3>
-    <p>&gt; {{ $t("cv.skills1") }}</p>
-    <p>&gt; {{ $t("cv.skills2") }}</p>
-    <p>&gt; {{ $t("cv.skills3") }}</p>
-    <p>&gt; {{ $t("cv.skills4") }}</p>
+    <h3>
+      {{ $t("cv.skills") }}
+    </h3>
+
+    <p>
+      &gt; {{ $t("cv.skills1") }}
+    </p>
+
+    <p>
+      &gt; {{ $t("cv.skills2") }}
+    </p>
+
+    <p>
+      &gt; {{ $t("cv.skills3") }}
+    </p>
+
+    <p>
+      &gt; {{ $t("cv.skills4") }}
+    </p>
   </div>
 </template>
 

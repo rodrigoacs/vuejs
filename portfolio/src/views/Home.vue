@@ -6,23 +6,22 @@
 <script setup>
 import Bio from '@/components/Bio.vue'
 import Projects from '@/components/Projects.vue'
+
 import { onMounted } from 'vue'
-import { generateGithubStatsUrl } from '../githubCard.js'
+
+import { generateGithubStatsUrl } from '../composables/githubCard'
 
 onMounted(() => {
   changeProjectCardTheme()
 })
 
 function changeProjectCardTheme() {
-  console.log('changeProjectCardTheme')
   const projectsCards = document.querySelectorAll('.project-card')
-  console.log(projectsCards)
+
   projectsCards.forEach(card => {
-    if (document.documentElement.classList.contains('dark')) {
-      card.src = generateGithubStatsUrl(card.alt, 'dark')
-    } else {
-      card.src = generateGithubStatsUrl(card.alt, 'light')
-    }
+    document.documentElement.classList.contains('dark')
+      ? card.src = generateGithubStatsUrl(card.name, 'dark')
+      : card.src = generateGithubStatsUrl(card.name, 'light')
   })
 }
 

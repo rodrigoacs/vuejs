@@ -1,15 +1,22 @@
 <template>
   <div>
-    <h2>{{ $t("bio.hello") }}</h2>
-    <p> {{ $t("bio.p1") }} </p>
-    <p> {{ $t("bio.p2") }} </p>
-    <p> {{ $t("bio.p3") }} </p>
+    <h2>
+      {{ $t("bio.hello") }}
+    </h2>
+
+    <p>
+      {{ $t("bio.p1") }}
+    </p>
+
+    <p>
+      {{ $t("bio.p2") }}
+    </p>
+
+    <p>
+      {{ $t("bio.p3") }}
+    </p>
   </div>
 </template>
-
-<script setup>
-
-</script>
 
 <style scoped>
 h2 {

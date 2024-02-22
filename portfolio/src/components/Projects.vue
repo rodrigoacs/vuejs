@@ -1,6 +1,9 @@
 <template>
   <div>
-    <h2>{{ $t("projects.title") }}</h2>
+    <h2>
+      {{ $t("projects.title") }}
+    </h2>
+
     <div class="projects-wrapper">
       <a
         href="https://time.rodrigoacs.com/"
@@ -9,9 +12,10 @@
         <img
           class="project-card"
           alt="time-tracker"
-          src=""
+          name="time-tracker"
         />
       </a>
+
       <a
         href="https://git-aesthetics.rodrigoacs.com/"
         target="_blank"
@@ -19,7 +23,7 @@
         <img
           class="project-card"
           alt="git-aesthetics"
-          src=""
+          name="git-aesthetics"
         />
       </a>
     </div>
@@ -28,7 +32,8 @@
 
 <script setup>
 import { onMounted } from 'vue'
-import { generateGithubStatsUrl } from '../githubCard.js'
+
+import { generateGithubStatsUrl } from '../composables/githubCard'
 
 onMounted(() => {
   defaultProjectTheme()
@@ -37,11 +42,10 @@ onMounted(() => {
 function defaultProjectTheme() {
   const projectsCards = document.querySelectorAll('.project-card')
   projectsCards.forEach(card => {
-    if (document.documentElement.classList.contains('dark')) {
-      card.src = generateGithubStatsUrl(card.alt, 'dark')
-    } else {
-      card.src = generateGithubStatsUrl(card.alt, 'light')
-    }
+    document.documentElement.classList.contains('dark')
+      ? card.src = generateGithubStatsUrl(card.name, 'dark')
+      : card.src = generateGithubStatsUrl(card.name, 'light')
+
   })
 }
 </script>
