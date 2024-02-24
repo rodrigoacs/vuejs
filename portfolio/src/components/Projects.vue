@@ -70,4 +70,12 @@ h2 {
 p {
   margin-bottom: 0.8rem;
 }
+
+@media screen and (max-width: 840px) {
+  .projects-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
 </style>

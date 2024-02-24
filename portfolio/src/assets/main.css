@@ -106,3 +106,32 @@ option:hover {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  gap: 10px;
+}
+
+@media print {
+  * {
+    color: #000 !important;
+    background-color: #fff !important;
+  }
+
+  nav {
+    display: none !important;
+    padding: none;
+  }
+
+  .header img {
+    display: none;
+  }
+
+  .footer {
+    display: none;
+  }
+
+}

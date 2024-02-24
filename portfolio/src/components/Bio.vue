@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2>
+    <h2 class="header">
+      <img src="../assets/images/brain_3d.png">
       {{ $t("bio.hello") }}
     </h2>
 
@@ -19,6 +20,10 @@
 </template>
 
 <style scoped>
+img {
+  height: 1.6rem;
+}
+
 h2 {
   margin-bottom: 0.8rem;
 }

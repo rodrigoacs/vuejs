@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h2>
+    <h2 class="header">
+      <img src="../assets/images/memo_3d.png">
       {{ $t("blog.title") }}
     </h2>
 
@@ -13,6 +14,10 @@
 </template>
 
 <style scoped>
+img {
+  height: 1.6rem;
+}
+
 .blog-post b {
   color: var(--color-text-secondary);
 }

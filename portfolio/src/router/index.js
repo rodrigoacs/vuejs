@@ -20,6 +20,11 @@ const router = createRouter({
       name: 'cv',
       component: () => import('../views/CV.vue'),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: () => import('../views/NotFound.vue'),
+    },
   ],
 })
 

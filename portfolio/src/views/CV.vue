@@ -1,6 +1,10 @@
 <template>
   <div>
     <h2 class="header">
+      <img
+        src="../assets/images/floppy_disk_3d.png"
+        @click="print"
+      >
       Rodrigo Augusto Correa Soares
     </h2>
 
@@ -61,6 +65,7 @@
     <div
       v-for='(edu, index) in $tm("cv.educations")'
       :key='index'
+      class="v-for-wrapper"
     >
       <p>
         {{ edu.time }}
@@ -73,15 +78,17 @@
       <p>
         {{ edu.course }}
       </p>
-
-      <br>
     </div>
 
     <h3>
       {{ $t("cv.experience") }}
     </h3>
 
-    <div v-for='(exp, index) in $tm("cv.experiences")'>
+    <div
+      v-for='(exp, index) in $tm("cv.experiences")'
+      :key='index'
+      class="v-for-wrapper"
+    >
       <p>
         {{ exp.time }}
       </p>
@@ -93,8 +100,6 @@
       <p>
         {{ exp.description }}
       </p>
-
-      <br>
     </div>
 
     <h3>
@@ -119,17 +124,18 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+function print() {
+  window.print()
+}
+</script>
 
 <style scoped>
-h3 {
-  margin-top: 2rem;
+img {
+  height: 1.6rem;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
+h3 {
   margin-top: 2rem;
 }
 
@@ -145,4 +151,10 @@ div li {
   text-align: justify;
   color: var(--color-text-secondary);
 }
+
+.v-for-wrapper {
+  margin-bottom: 1rem;
+}
+
+
 </style>

@@ -31,7 +31,7 @@ export const pt = {
       },
     ],
     experience: 'Experiência',
-    experienceText: [
+    experiences: [
       {
         time: 'FEVEREIRO DE 2023 - ATUALMENTE',
         title: 'CLI Consultoria - Estagiário de Engenharia de Dados',
