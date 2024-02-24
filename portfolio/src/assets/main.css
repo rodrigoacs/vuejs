@@ -1,17 +1,5 @@
 :root {
   transition: all .2s;
-  --color-primary: #101010;
-  --color-black: #000;
-  --color-hover: #181818;
-  --color-text-primary: #fff;
-  --color-text-secondary: #d4d4d4;
-  --color-text-unfocused: #737373;
-  --color-text-highlight: #5df80f;
-  --color-javascript: #f1e05a;
-  --color-php: #4F5D95;
-  --color-text-blue: #007acc;
-  --color-public-bg: rgba(45, 212, 191, .1);
-  --color-public: rgb(20, 184, 166);
 }
 
 .light {
@@ -22,11 +10,6 @@
   --color-text-secondary: #333;
   --color-text-unfocused: #666;
   --color-text-highlight: #007acc;
-  --color-javascript: #f1e05a;
-  --color-php: #4F5D95;
-  --color-text-blue: #007acc;
-  --color-public-bg: rgba(45, 212, 191, .1);
-  --color-public: rgb(11, 100, 82);
 }
 
 .dark {
@@ -37,11 +20,6 @@
   --color-text-secondary: #d4d4d4;
   --color-text-unfocused: #737373;
   --color-text-highlight: #5df80f;
-  --color-javascript: #f1e05a;
-  --color-php: #4F5D95;
-  --color-text-blue: #007acc;
-  --color-public-bg: rgba(45, 212, 191, .1);
-  --color-public: rgb(20, 184, 166);
 }
 
 * {
@@ -70,13 +48,6 @@ a {
   color: var(--color-text-primary);
 }
 
-footer {
-  opacity: .2;
-  margin-top: 100%;
-  padding-bottom: 1rem;
-  color: var(--color-text-secondary);
-}
-
 h2 {
   font-weight: 600;
 }
@@ -84,23 +55,6 @@ h2 {
 p {
   text-align: justify;
   color: var(--color-text-secondary);
-}
-
-select {
-  background-color: transparent;
-  color: var(--color-text-primary);
-  border: none;
-  border-radius: .5rem;
-}
-
-option {
-  background-color: var(--color-primary);
-  color: var(--color-text-primary);
-}
-
-option:hover {
-  background-color: var(--color-hover);
-  color: var(--color-text-primary);
 }
 
 ::-webkit-scrollbar {

@@ -133,6 +133,18 @@ function isActive(path) {
 </script>
 
 <style scoped>
+select {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: none;
+  border-radius: .5rem;
+}
+
+option {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
 button {
   background-color: transparent;
   border: none;

@@ -13,7 +13,6 @@
 <style scoped>
 div {
   display: flex;
-  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
