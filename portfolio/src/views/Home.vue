@@ -1,6 +1,9 @@
 <template>
-  <Bio />
-  <Projects />
+  <main>
+    <Bio />
+
+    <Projects />
+  </main>
 </template>
 
 <script setup>

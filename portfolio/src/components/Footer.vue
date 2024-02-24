@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <footer>
     <p>
       icons by Icons8
     </p>
-  </div>
+  </footer>
 </template>
 
 <style scoped>
